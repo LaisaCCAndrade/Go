@@ -1,0 +1,53 @@
+{{template "base" .}} 
+
+{{define "title"}} Signup {{end}}
+
+<head>
+  <link rel="stylesheet" href="static/form.css" />
+  <style>
+    .falha {
+      font-size: 20px;
+      margin-top: 10px;
+      text-align: center;
+      background-color: #e61111;
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+{{define "nav"}}
+<a href="/signup">Sign Up</a>
+<a href="/login">Login</a>
+{{end}} {{define "body"}}
+
+<div class="falha">
+  <h1>{{.Falha}}</h1>
+</div>
+<h1>Cadastre-se</h1>
+<p>Preencha para criar uma conta</p>
+<form action="/signup" method="POST">
+  <div>
+    <label for="name">Nome de Usuário:</label>
+    <input type="text" name="name" required />
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required />
+  </div>
+  <div>
+    <label for="password">Senha:</label>
+    <input type="password" name="password" required />
+  </div>
+  <div>
+    <label for="confirm-password">Confirmar senha:</label>
+    <input type="password" name="confirm-password" required />
+  </div>
+  <div>
+    <input type="submit" value="Cadastrar" />
+  </div>
+  <div>
+    <a href="/login" class="link">Login</a>
+  </div>
+</form>
+
+{{end}}
